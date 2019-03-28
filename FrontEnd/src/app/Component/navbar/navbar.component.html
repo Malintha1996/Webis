@@ -1,0 +1,152 @@
+<!-- ---start grid--- -->
+<div class="container">
+  <div class="row">
+          <div class="col-12">
+          <!-- ----start nav bar---- -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Webis</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                  <form class="form-inline my-2 my-lg-0">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                
+                <li class="nav-item" style="margin-left:150px;">
+                  <a class="nav-link" routerLinkActive="active" routerLink="Catergory">Categories</a>
+                </li>
+                <li class="nav-item" style="border-right: solid 1px black; padding-right: 75px;">
+                  <a class="nav-link" href="#">About Us</a>
+                </li>
+                
+               
+              </ul>
+            <div id="SLButton" style="border: 1px solid #f8f9fa; ">
+              <ul class="navbar-nav mr-auto">
+                  <li *ngIf="!auth.loggedIn()" class="nav-item"  >
+                      <!-- <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">Log In</button> -->
+                      <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" style="margin-right:40px;">Log In</button>
+                      <!-- ---------light box------------- -->
+                      
+                      
+                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="page-header">Login</h2>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <!-- -------------Login form----------- -->
+          
+                              
+                              <form (submit)="signin()">
+                                <div class="form-group">
+                                   <label>Username</label>
+                                   <input type="text" [(ngModel)]="user.username" class="form-control"  name="username">
+                              
+                                </div>
+                                <div class="form-group">
+                                  <label>Password</label>
+                                  <input type="text" [(ngModel)]="user.password" class="form-control"  name="password">
+                              
+                               </div>
+                               <input type="submit" class="btn btn-primary" value="Login">
+                               
+                              </form>
+                              <!-- -------------------End Login form------------ -->
+          
+          
+                            </div>
+                            <div class="modal-footer">
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>           
+                    <!-- --------------End light box------------- -->
+          
+          
+          
+                  </li>
+                  <li *ngIf="!auth.loggedIn()" class="nav-item">
+                
+                      <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalSignup" data-whatever="@getbootstrap" style="margin-right:40px;">Sign Up</button>
+                      <!-- ---------light box------------- -->
+                      
+                      
+                      <div class="modal fade" id="exampleModalSignup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="page-header">Signup</h2>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <!-- -------------Signup form----------- -->
+                              <form (submit)="signUp()">
+                                  <div class="form-group">
+                                     <label>Name</label>
+                                     <input type="text" [(ngModel)]="user.name" class="form-control"  name="name" >
+                                
+                                  </div>
+                                  <div class="form-group">
+                                    <label>User Name</label>
+                                    <input type="text" [(ngModel)]="user.username" class="form-control"  name="username">
+                                
+                                 </div>
+                                 <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" [(ngModel)]="user.email" class="form-control"  name="email">
+                                
+                                 </div>
+          
+                                 <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" [(ngModel)]="user.password" class="form-control"  name="password">
+                                
+                                 </div>
+          
+                                 
+                                 <input type="submit" class="btn btn-primary" value="Signup">
+                                 
+                                </form>
+                              
+                              
+                              
+                              <!-- -------------------End Signup form------------ -->
+          
+          
+                            </div>
+                            <div class="modal-footer">
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>           
+                    <!-- --------------End light box------------- -->
+          
+                  </li>
+                  <li *ngIf="auth.loggedIn()"  class="nav-item"  >
+                      <button type="button" (click)="auth.logout()" class="btn btn-outline-primary">Logout</button>
+                  </li>
+          
+          
+              </ul>
+            </div>
+            </div>
+          </nav>
+          
+        </div> <!-- --end div class="col-12---- -->
+       
+      </div>
+</div>
+<!-- ----end grid--- -->
